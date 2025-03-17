@@ -64,11 +64,14 @@ export interface AvatarCardProps {
 
 export interface AvatarViewerProps {
   avatar: Avatar;
-  config?: ViewerConfig;
-  onDownload?: (id: string, format?: string | null) => void;
+  config: ViewerConfig;
+  onMetadataLoad?: (metadata: Record<string, any>) => void;
   onFormatSelect?: (format: string | null) => void;
   selectedFormat?: string | null;
-  onMetadataLoad?: (metadata: Record<string, any>) => void;
+  onDownload?: (id: string, format?: string | null) => void;
+  metadata?: Record<string, any> | null;
+  avatars?: Avatar[];
+  onAvatarSelect?: (avatar: Avatar) => void;
 }
 
 export interface AvatarHeaderProps {

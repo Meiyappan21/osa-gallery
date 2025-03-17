@@ -81,6 +81,79 @@ export const VRMViewer = ({ url, animationUrl, backgroundGLB, onMetadataLoad }) 
       }
   }, [url]);
 
+  // Handle custom camera control events for mobile
+  useEffect(() => {
+    const handleResetCamera = () => {
+      if (controlsRef.current) {
+        controlsRef.current.reset();
+      }
+    };
+
+    const handleZoomIn = () => {
+      if (cameraRef.current && controlsRef.current) {
+        // Get current zoom level
+        const distance = controlsRef.current.getDistance();
+        // Zoom in by reducing distance
+        const newDistance = Math.max(distance * 0.8, 0.5);
+        controlsRef.current.minDistance = newDistance;
+        controlsRef.current.maxDistance = newDistance;
+        controlsRef.current.update();
+        // Reset min/max after animation
+        setTimeout(() => {
+          if (controlsRef.current) {
+            controlsRef.current.minDistance = 0.5;
+            controlsRef.current.maxDistance = 10;
+          }
+        }, 100);
+      }
+    };
+
+    const handleZoomOut = () => {
+      if (cameraRef.current && controlsRef.current) {
+        // Get current zoom level
+        const distance = controlsRef.current.getDistance();
+        // Zoom out by increasing distance
+        const newDistance = Math.min(distance * 1.2, 10);
+        controlsRef.current.minDistance = newDistance;
+        controlsRef.current.maxDistance = newDistance;
+        controlsRef.current.update();
+        // Reset min/max after animation
+        setTimeout(() => {
+          if (controlsRef.current) {
+            controlsRef.current.minDistance = 0.5;
+            controlsRef.current.maxDistance = 10;
+          }
+        }, 100);
+      }
+    };
+
+    const handleToggleWireframe = () => {
+      // Call toggleWireframeMode to toggle state
+      toggleWireframeMode();
+      console.log('Wireframe mode toggled to:', !wireframeMode);
+    };
+
+    const handleToggleSkeleton = () => {
+      // Call toggleSkeletonMode to toggle state
+      toggleSkeletonMode();
+      console.log('Skeleton mode toggled to:', !skeletonMode);
+    };
+
+    window.addEventListener('reset-camera', handleResetCamera);
+    window.addEventListener('zoom-in', handleZoomIn);
+    window.addEventListener('zoom-out', handleZoomOut);
+    window.addEventListener('toggle-wireframe', handleToggleWireframe);
+    window.addEventListener('toggle-skeleton', handleToggleSkeleton);
+
+    return () => {
+      window.removeEventListener('reset-camera', handleResetCamera);
+      window.removeEventListener('zoom-in', handleZoomIn);
+      window.removeEventListener('zoom-out', handleZoomOut);
+      window.removeEventListener('toggle-wireframe', handleToggleWireframe);
+      window.removeEventListener('toggle-skeleton', handleToggleSkeleton);
+    };
+  }, [wireframeMode, skeletonMode]); // Add wireframeMode and skeletonMode as dependencies to ensure latest values
+
   // Extract VRM metadata
   const extractVRMMetadata = (vrm, gltf) => {
     try {
@@ -561,8 +634,10 @@ export const VRMViewer = ({ url, animationUrl, backgroundGLB, onMetadataLoad }) 
 
   // Toggle skeleton view mode
   const toggleSkeletonMode = () => {
+    console.log('Toggle skeleton called, current mode:', skeletonMode);
     const newSkeletonMode = !skeletonMode;
     setSkeletonMode(newSkeletonMode);
+    console.log('New skeleton mode:', newSkeletonMode);
     
     // Update skeleton helper visibility
     if (skeletonHelperRef.current) {
@@ -723,8 +798,10 @@ export const VRMViewer = ({ url, animationUrl, backgroundGLB, onMetadataLoad }) 
 
   // Toggle wireframe mode function
   const toggleWireframeMode = () => {
+    console.log('Toggle wireframe called, current mode:', wireframeMode);
     const newWireframeMode = !wireframeMode;
     setWireframeMode(newWireframeMode);
+    console.log('New wireframe mode:', newWireframeMode);
     
     if (!vrmRef.current) return;
     
@@ -757,40 +834,42 @@ export const VRMViewer = ({ url, animationUrl, backgroundGLB, onMetadataLoad }) 
         />
       </div>
       
-      {/* Control buttons group - moved to the top */}
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 flex gap-4">
-        {/* Wireframe toggle button */}
-        <button
-          onClick={toggleWireframeMode}
-          className={`px-6 py-2 rounded-md transition-all ${
-            wireframeMode 
-              ? 'bg-white text-black font-medium border border-gray-200' 
-              : 'bg-white bg-opacity-90 text-black font-medium border border-gray-200 hover:bg-opacity-100'
-          }`}
-          style={{ 
-            backdropFilter: 'blur(4px)',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
-          }}
-        >
-          {wireframeMode ? t('avatar.controls.wireframe') : t('avatar.controls.wireframe')}
-        </button>
-        
-        {/* Skeleton toggle button */}
-        <button
-          onClick={toggleSkeletonMode}
-          className={`px-6 py-2 rounded-md transition-all ${
-            skeletonMode 
-              ? 'bg-white text-black font-medium border border-gray-200' 
-              : 'bg-white bg-opacity-90 text-black font-medium border border-gray-200 hover:bg-opacity-100'
-          }`}
-          style={{ 
-            backdropFilter: 'blur(4px)',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
-          }}
-        >
-          {skeletonMode ? t('avatar.controls.showBones') : t('avatar.controls.showBones')}
-        </button>
-      </div>
+      {/* Control buttons group - hide on mobile */}
+      {window.innerWidth >= 768 && (
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 flex gap-4">
+          {/* Wireframe toggle button */}
+          <button
+            onClick={toggleWireframeMode}
+            className={`px-6 py-2 rounded-md transition-all ${
+              wireframeMode 
+                ? 'bg-white text-black font-medium border border-gray-200' 
+                : 'bg-white bg-opacity-90 text-black font-medium border border-gray-200 hover:bg-opacity-100'
+            }`}
+            style={{ 
+              backdropFilter: 'blur(4px)',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+            }}
+          >
+            {wireframeMode ? t('avatar.controls.wireframe') : t('avatar.controls.wireframe')}
+          </button>
+          
+          {/* Skeleton toggle button */}
+          <button
+            onClick={toggleSkeletonMode}
+            className={`px-6 py-2 rounded-md transition-all ${
+              skeletonMode 
+                ? 'bg-white text-black font-medium border border-gray-200' 
+                : 'bg-white bg-opacity-90 text-black font-medium border border-gray-200 hover:bg-opacity-100'
+            }`}
+            style={{ 
+              backdropFilter: 'blur(4px)',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+            }}
+          >
+            {skeletonMode ? t('avatar.controls.showBones') : t('avatar.controls.showBones')}
+          </button>
+        </div>
+      )}
       
       {error && (
         <div className="absolute inset-0 bg-black/80 flex items-center justify-center z-10">
