@@ -21,7 +21,8 @@
     "select": "Select",
     "deselectAll": "Deselect All",
     "selectAll": "Select All",
-    "search": "Search avatars..."
+    "search": "Search avatars...",
+    "browse": "Browse Avatars"
   },
   "formats": {
     "vrm": "VRM",

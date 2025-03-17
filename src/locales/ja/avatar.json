@@ -21,7 +21,8 @@
     "select": "選択",
     "deselectAll": "全選択解除",
     "selectAll": "全選択",
-    "search": "アバターを検索..."
+    "search": "アバターを検索...",
+    "browse": "アバターを選択"
   },
   "formats": {
     "vrm": "VRM",

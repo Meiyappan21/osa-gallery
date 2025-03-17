@@ -1,6 +1,36 @@
 {
   "title": "VRM Inspector",
   "description": "Drop your VRM avatar anywhere here or click below to start exploring. Let's see what's inside your model!",
+  "mobile": {
+    "desktopOnly": {
+      "title": "Desktop Only Feature",
+      "description": "The VRM Inspector is currently optimized for desktop use. Please visit this page on a computer for the best experience."
+    },
+    "intro": {
+      "title": "VRM Inspector",
+      "description": "A powerful tool for inspecting and analyzing VRM avatar files. View metadata, explore textures, test expressions, and more."
+    },
+    "features": {
+      "title": "Key Features",
+      "modelInfo": {
+        "title": "Model Information",
+        "description": "View comprehensive metadata, including author details and licensing."
+      },
+      "expressionControl": {
+        "title": "Expression Control",
+        "description": "Test and preview facial expressions and blendshapes."
+      },
+      "textureAnalysis": {
+        "title": "Texture Analysis",
+        "description": "Examine and download model textures with format details."
+      }
+    },
+    "comingSoon": {
+      "title": "Mobile Version Coming Soon",
+      "description": "We're working on a mobile-optimized version of the VRM Inspector. For now, please use a desktop computer to access all features."
+    },
+    "openDesktop": "Open on Desktop"
+  },
   "buttons": {
     "openFile": "Open VRM File",
     "learnMore": "Learn More",
