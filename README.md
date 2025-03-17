@@ -41,7 +41,8 @@ All with no strings attached!
 
 ## 💡 Development Story
 
-This website was developed in just 4 days using AI tools like Claude, ChatGPT, and Bolt.new, with further updates implemented using Claude 3.7 Sonnet through Cursor. The project demonstrates how modern AI tools can empower creators with limited programming experience to build functional web applications.
+This website was initially developed in just 4 days using AI tools like Claude, ChatGPT, and Bolt.new, with further updates implemented using Claude 3.7 Sonnet through Cursor.
+The project demonstrates how modern AI tools can empower creators with limited programming experience to build functional web applications.
 
 ## 🔮 Future Plans
 
@@ -102,3 +103,6 @@ Interested in contributing avatars or helping with development? We welcome contr
 All code in this repository is available under the MIT License.
 
 The 3D avatar models featured on OpenSourceAvatars.com are primarily released under Creative Commons CC0 licenses, making them free to use, modify, and distribute for any purpose, including commercial projects.
+
+## Test Update
+This is a small update to test GitHub and Vercel connectivity.
