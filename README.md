@@ -103,6 +103,3 @@ Interested in contributing avatars or helping with development? We welcome contr
 All code in this repository is available under the MIT License.
 
 The 3D avatar models featured on OpenSourceAvatars.com are primarily released under Creative Commons CC0 licenses, making them free to use, modify, and distribute for any purpose, including commercial projects.
-
-## Test Update
-This is a small update to test GitHub and Vercel connectivity.
