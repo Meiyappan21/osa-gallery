@@ -1,0 +1,59 @@
+{
+  "title": "Resources & Downloads",
+  "batch": {
+    "title": "Batch Downloads",
+    "description": "Looking to download all the files in this site at once? All the models, textures, and renders of the avatars can be found on this ArDrive folder:",
+    "button": {
+      "title": "Open Source Avatars by ToxSam - ArDrive Folder",
+      "description": "Complete collection with all assets and files"
+    }
+  },
+  "ardrive": {
+    "title": "What is ArDrive?",
+    "description1": "ArDrive is a decentralized storage platform built on the Arweave blockchain. Unlike traditional cloud storage, files stored on ArDrive are permanently saved on the Arweave network, creating truly permanent data storage.",
+    "description2": "This means all the avatar files will be available forever - they can't be deleted, censored, or taken offline. The one-time storage fee ensures perpetual access without subscription costs, making it ideal for preserving open source content like these avatars."
+  },
+  "github": {
+    "title": "GitHub Repositories",
+    "description": "Access the avatar database and website source code on GitHub.",
+    "database": {
+      "title": "Avatar Database",
+      "description": "JSON metadata for all avatars - useful for developers"
+    },
+    "website": {
+      "title": "Gallery Website",
+      "description": "Source code for OpenSourceAvatars.com"
+    }
+  },
+  "vrm": {
+    "title": "About VRM Format",
+    "description": "All avatars in this collection are primarily available in VRM format, with some also offered in alternative formats.",
+    "what": {
+      "title": "What is VRM?",
+      "description1": "VRM is an open file format for 3D humanoid avatars used in VR applications. Based on glTF, it extends the format with humanoid skeletal structure, material definitions for various rendering styles, facial expressions, and look-at controls.",
+      "description2": "We use VRM because it's an open, standardized format that works across multiple platforms including VRChat, VTuber applications, web browsers, Unity, and other 3D engines. It has excellent support for humanoid avatars and includes built-in rigging that makes animation straightforward.",
+      "learnMore": "Learn more about VRM at the official website"
+    }
+  },
+  "philosophy": {
+    "title": "Our Open Source Philosophy",
+    "description": "We believe in the power of open source to drive innovation and creativity in the virtual world.",
+    "goals": {
+      "intro": "By making these avatars freely available under permissive licenses (primarily CC0), we aim to:",
+      "list": [
+        "Lower the barrier to entry for creators new to virtual worlds",
+        "Encourage experimentation and derivative works",
+        "Provide high-quality reference materials for learning",
+        "Build a more diverse and inclusive representation of characters in virtual spaces"
+      ]
+    },
+    "description1": "The metaverse should be built on open standards and shared creative resources, not locked behind proprietary formats and restrictive licenses. Our avatars can be freely modified, remixed, and used in both personal and commercial projects.",
+    "description2": "Feel free to use these avatars for your website, game, artwork, training an LLM or AI model, or pretty much whatever you want. There are no restrictions - that's the beauty of truly open content.",
+    "description3": "We encourage others to join this movement by sharing their own creations under similar open licenses."
+  },
+  "contact": {
+    "title": "Need Something Specific?",
+    "description": "If you need specific resources or have questions about usage, feel free to reach out.",
+    "button": "Contact ToxSam"
+  }
+} 

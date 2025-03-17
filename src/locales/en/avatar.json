@@ -1,0 +1,34 @@
+{
+  "details": {
+    "title": "Technical Details",
+    "format": "Format",
+    "polygons": "Polygons",
+    "materials": "Materials",
+    "license": "License",
+    "project": "Project",
+    "author": "Author"
+  },
+  "vrm": {
+    "title": "VRM Information",
+    "version": "VRM Version",
+    "allowedUsers": "Allowed Users",
+    "everyone": "Everyone"
+  },
+  "controls": {
+    "wireframe": "Wireframe",
+    "showBones": "Show Bones",
+    "download": "Download",
+    "select": "Select",
+    "deselectAll": "Deselect All",
+    "selectAll": "Select All",
+    "search": "Search avatars..."
+  },
+  "formats": {
+    "vrm": "VRM",
+    "fbx": "FBX",
+    "vrmViewer": "VRM Viewer",
+    "fbxViewer": "FBX Viewer",
+    "voxel": "Voxel VRM",
+    "voxel-fbx": "Voxel FBX"
+  }
+} 

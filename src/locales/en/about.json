@@ -1,0 +1,49 @@
+{
+  "title": "About OpenSourceAvatars.com",
+  "project": {
+    "title": "The Project",
+    "description1": "OpenSourceAvatars.com started as a platform showcasing CC0 and open source avatars created by ToxSam since 2018, including the original 200+ VRM avatars from the 100avatars challenge in 2018 and 2020. But we're dreaming bigger now!",
+    "description2": "Our mission is to transform OpenSourceAvatars.com into the internet's central hub for discovering and downloading high-quality CC0 and Creative Commons 3D avatars. While ToxSam's creations form the foundation of our collection, we're excited to expand by curating and featuring amazing open source avatars from talented creators worldwide. Think of it as a free, accessible library of metaverse-ready characters that anyone can use for games, VR applications, virtual worlds, art projects, or AI training – no strings attached!"
+  },
+  "status": {
+    "title": "Current Status",
+    "badges": {
+      "beta": "Super Beta",
+      "avatars": "300+ Avatars",
+      "format": "VRM Format"
+    },
+    "description": "The platform is in its early stages and will receive regular updates. More avatars will be added as they're created, including the upcoming Grifters collection."
+  },
+  "updates": {
+    "title": "Recent Updates",
+    "intro": "We've made significant progress on the project recently:",
+    "list": [
+      "Launched the VRM Inspector tool - a powerful utility for reviewing VRM file metadata and properties",
+      "Added full Japanese language support across the entire platform (AI-assisted translations)",
+      "Added 100 more VRM avatars to the collection",
+      "Created voxel versions of the original 100 Avatars from Round 1 and Round 2",
+      "Added FBX versions for both regular and voxel variants of the 100 Avatars collection",
+      "Upgraded storage from CloudFlare buckets to permanent ArDrive storage for better longevity",
+      "Migrated from Supabase to GitHub for increased transparency and easier developer access"
+    ]
+  },
+  "development": {
+    "title": "Development Story",
+    "description1": "This website was developed in just 4 days using AI tools like Claude, ChatGPT, and Bolt.new. Despite having no recent programming experience (last coded 12 years ago), this project demonstrates the power of modern AI tools in enabling non-programmers to create functional web applications.",
+    "description2": "The latest version was upgraded in a couple of days using Claude 3.7 Sonnet through Cursor, which I believe is one of the greatest tools for development. The project is available as open source on GitHub, continuing the spirit of openness and accessibility that drives the avatar collection itself."
+  },
+  "future": {
+    "title": "Future Plans",
+    "list": [
+      "Continue adding more open source avatars",
+      "Release the Grifters collection",
+      "Begin incorporating CC0 avatars from other creators",
+      "Improve the 3D gallery viewer with smaller tools"
+    ]
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "twitter": "Follow on Twitter",
+    "website": "Visit ToxSam.com"
+  }
+} 
