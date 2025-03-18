@@ -152,7 +152,7 @@ export const HomeVRMViewer: React.FC<HomeVRMViewerProps> = ({ className }) => {
         // Load model first
         const gltf = await new Promise<any>((resolve, reject) => {
           loader.load(
-            avatar.modelFileUrl,
+            avatar.modelFileUrl as string,
             resolve,
             undefined,
             reject
@@ -366,7 +366,7 @@ export const HomeVRMViewer: React.FC<HomeVRMViewerProps> = ({ className }) => {
 
       animationLoadedRef.current = false;
     };
-  }, [avatar]);
+  }, [avatar?.modelFileUrl]);
 
   return (
     <div 
