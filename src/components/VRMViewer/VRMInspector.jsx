@@ -148,11 +148,9 @@ const getUsageName = (usage) => {
 // Add these helper functions to format texture properties
 const getTextureFormat = (texture) => {
   const formats = {
-    [THREE.AlphaFormat]: 'Alpha',
-    [THREE.RGBFormat]: 'RGB',
+    [THREE.RedFormat]: 'Red',
+    [THREE.RGFormat]: 'RG',
     [THREE.RGBAFormat]: 'RGBA',
-    [THREE.LuminanceFormat]: 'Luminance',
-    [THREE.LuminanceAlphaFormat]: 'LuminanceAlpha',
     [THREE.DepthFormat]: 'Depth',
     [THREE.DepthStencilFormat]: 'DepthStencil',
   };
