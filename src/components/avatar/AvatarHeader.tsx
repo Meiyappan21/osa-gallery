@@ -3,6 +3,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { AvatarHeaderProps } from '@/types/avatar';
 import { Eye, AlertTriangle, ChevronUp, ChevronDown } from 'lucide-react';
@@ -16,9 +17,9 @@ export const AvatarHeader: React.FC<AvatarHeaderProps> = ({
   socialLink,
   showWarningButton = false
 }) => {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const pathname = usePathname();
-  const isVRMViewer = pathname === '/vrmviewer';
+  const isVRMInspector = pathname === '/vrminspector';
   const isMobile = useIsMobile();
   const [isHeaderCollapsed, setIsHeaderCollapsed] = useState(false);
 
@@ -40,30 +41,30 @@ export const AvatarHeader: React.FC<AvatarHeaderProps> = ({
   // Navigation links to be reused
   const navigationLinks = (
     <>
-      <a 
-        href="/"
+      <Link 
+        href={`/${locale}/gallery`}
         className="text-gray-600 hover:text-gray-900 transition-colors text-sm block md:inline py-3 md:py-0"
       >
         {t('header.navigation.avatars')}
-      </a>
-      <a 
-        href="/about"
-        className="text-gray-600 hover:text-gray-900 transition-colors text-sm block md:inline py-3 md:py-0"
-      >
-        {t('header.navigation.about')}
-      </a>
-      <a 
-        href="/resources"
-        className="text-gray-600 hover:text-gray-900 transition-colors text-sm block md:inline py-3 md:py-0"
-      >
-        {t('header.navigation.resources')}
-      </a>
-      <a 
-        href="/vrmviewer"
+      </Link>
+      <Link 
+        href={`/${locale}/vrminspector`}
         className="text-gray-600 hover:text-gray-900 transition-colors text-sm block md:inline py-3 md:py-0"
       >
         {t('header.navigation.viewer')}
-      </a>
+      </Link>
+      <Link 
+        href={`/${locale}/resources`}
+        className="text-gray-600 hover:text-gray-900 transition-colors text-sm block md:inline py-3 md:py-0"
+      >
+        {t('header.navigation.resources')}
+      </Link>
+      <Link 
+        href={`/${locale}/about`}
+        className="text-gray-600 hover:text-gray-900 transition-colors text-sm block md:inline py-3 md:py-0"
+      >
+        {t('header.navigation.about')}
+      </Link>
     </>
   );
 
@@ -110,7 +111,7 @@ export const AvatarHeader: React.FC<AvatarHeaderProps> = ({
         <div className="flex flex-col md:flex-row md:items-center justify-between w-full">
           {/* Title and Description - Left aligned */}
           <div className="flex items-center justify-between">
-            <a href="/" className="hover:opacity-80 transition-opacity">
+            <Link href={`/${locale}`} className="hover:opacity-80 transition-opacity">
               <h1 className={`text-xl md:text-2xl font-bold text-gray-900 text-left ${isHeaderCollapsed && isMobile ? 'text-lg' : ''}`}>
                 Open Source Avatars
               </h1>
@@ -120,7 +121,7 @@ export const AvatarHeader: React.FC<AvatarHeaderProps> = ({
                   The home of truly free avatars and tools! Enjoy!
                 </p>
               )}
-            </a>
+            </Link>
             
             {/* Mobile Menu Button - Only on mobile */}
             {isMobile && (
@@ -130,7 +131,7 @@ export const AvatarHeader: React.FC<AvatarHeaderProps> = ({
                     {navigationLinks}
                   </div>
                   
-                  {isVRMViewer && (
+                  {isVRMInspector && (
                     <div className="mb-4">
                       <a 
                         href="https://x.com/toxsam"
@@ -176,7 +177,7 @@ export const AvatarHeader: React.FC<AvatarHeaderProps> = ({
           {!isMobile && (
             <div className="flex justify-center md:justify-end gap-4 flex-shrink-0 items-center">
               <div className="flex items-center gap-4">
-                {isVRMViewer && (
+                {isVRMInspector && (
                   <a 
                     href="https://x.com/toxsam"
                     target="_blank"

@@ -5,10 +5,14 @@ export const metadata: Metadata = {
   description: 'Inspect and analyze VRM files - view metadata, textures, and 3D models'
 };
 
-export default function VRMViewerLayout({
+export default function VRMInspectorLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
-  return children;
+  return (
+    <div className="min-h-screen bg-white">
+      {children}
+    </div>
+  );
 } 

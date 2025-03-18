@@ -1,10 +1,32 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    locales: ['en', 'ja'],
-    defaultLocale: 'en',
+  
+  // Remove the old i18n config
+  // i18n: {
+  //   locales: ['en', 'ja'],
+  //   defaultLocale: 'en',
+  //   domains: [
+  //     {
+  //       domain: 'opensourceavatars.com',
+  //       defaultLocale: 'ja',
+  //       locales: ['ja'],
+  //     },
+  //     {
+  //       domain: 'opensourceavatars.com',
+  //       defaultLocale: 'en',
+  //       locales: ['en'],
+  //     },
+  //   ],
+  // },
+
+  // Add middleware configuration for i18n
+  experimental: {
+    // Keep existing experimental configs
+    serverComponentsExternalPackages: ['@prisma/client'],
   },
+
+  // Rest of your existing config...
   images: {
     remotePatterns: [
       {
@@ -18,16 +40,9 @@ const nextConfig = {
     ],
     unoptimized: process.env.NODE_ENV === 'development'
   },
-  // Set output to 'standalone' for better handling of server components
   output: 'standalone',
   
   // Configure dynamic route handling
-  experimental: {
-    // Don't attempt to static generation for API routes
-    serverComponentsExternalPackages: ['@prisma/client']
-  },
-  
-  // Mark API routes as dynamic to prevent static generation attempts
   async rewrites() {
     return [
       {

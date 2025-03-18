@@ -155,7 +155,7 @@ export const AvatarGallery: React.FC = () => {
         <AvatarHeader 
           title="Open Source Avatars"
           description="A collection of CC0 and open source avatars created by ToxSam"
-          socialLink="https://twitter.com/ToxSam"
+          socialLink="https://x.com/toxsam"
         />
       </div>
   

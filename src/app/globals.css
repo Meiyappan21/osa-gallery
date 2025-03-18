@@ -72,7 +72,24 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings: "rlig" 1, "calt" 1, "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Improved heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+    font-feature-settings: "salt" 1, "ss01" 1;
+  }
+
+  /* Large text optimization */
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-feature-settings: "salt" 1, "ss01" 1, "kern" 1;
+      letter-spacing: -0.02em;
+    }
   }
 }
 
