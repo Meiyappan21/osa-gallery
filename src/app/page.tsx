@@ -6,15 +6,8 @@ import { AvatarHeader } from '@/components/avatar/AvatarHeader';
 import { HomeVRMViewer } from '@/components/VRMViewer/HomeVRMViewer';
 import { useI18n } from '@/lib/i18n';
 import { Download, Palette, Search, Code, Box, GitBranch, Boxes, Microscope, ArrowRight } from "lucide-react";
-import { redirect } from 'next/navigation';
 
-export default function RootPage() {
-  // This page should never be rendered as the middleware will handle the redirect
-  redirect('/en');
-  return null;
-}
-
-export function Home() {
+export default function Home() {
   const { t } = useI18n();
   
   const title = String(t('home.title'));
