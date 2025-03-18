@@ -12,6 +12,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import TextureRenderer from './TextureRenderer';
 import { useI18n } from '@/lib/i18n';
+import { I18nProvider } from '@/lib/i18n';
 
 // Helper function to format file size
 const formatFileSize = (bytes) => {
@@ -1232,11 +1233,12 @@ const VRMInspector = React.memo(() => {
                                 // Estimate based on format (rough approximation)
                                 let bytesPerPixel = 4; // Default to RGBA (4 bytes per pixel)
                                 
-                                if (material[prop].format === THREE.RGBFormat) {
-                                  bytesPerPixel = 3;
-                                } else if (material[prop].format === THREE.AlphaFormat || 
-                                           material[prop].format === THREE.LuminanceFormat) {
+                                if (material[prop].format === THREE.RedFormat) {
                                   bytesPerPixel = 1;
+                                } else if (material[prop].format === THREE.RGFormat) {
+                                  bytesPerPixel = 2;
+                                } else if (material[prop].format === THREE.RGBAFormat) {
+                                  bytesPerPixel = 4;
                                 }
                                 
                                 const sizeInBytes = width * height * bytesPerPixel;
@@ -2196,4 +2198,11 @@ const VRMInspector = React.memo(() => {
   );
 });
 
-export default VRMInspector; 
+// Wrap the exported component with I18nProvider
+export default function VRMInspectorWithProvider() {
+  return (
+    <I18nProvider defaultLocale="en">
+      <VRMInspector />
+    </I18nProvider>
+  );
+} 

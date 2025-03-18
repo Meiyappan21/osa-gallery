@@ -1,4 +1,5 @@
 import './globals.css';
+import { I18nProvider } from '@/lib/i18n';
 
 export const metadata = {
   title: 'Open Source Avatars',
@@ -10,5 +11,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <I18nProvider defaultLocale="en">
+      {children}
+    </I18nProvider>
+  );
 }
